@@ -76,7 +76,6 @@ export default class TestScreen extends React.Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderListViewRows.bind(this)}
-        onClickRow={this.onClickRow(this)}
         style={styles.mainContainer}
       />
     )
@@ -84,7 +83,9 @@ export default class TestScreen extends React.Component {
   //  一行ごとの
   renderListViewRows (entry) {
     return (
-      <TouchableHighlight onPress={this.props.onClickRow}>
+      <TouchableHighlight onPress={() => {
+        console.log(this.onClickRow(entry))
+      }}>
         <View style={ListStyles.container}>
           <Image
             source={{uri: entry.thumbnail}}
