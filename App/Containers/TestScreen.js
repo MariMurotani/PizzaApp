@@ -1,7 +1,7 @@
 // @flow
 'use strict'
 import React from 'react'
-import { View, Text, Image, ListView, StyleSheet } from 'react-native'
+import { View, Text, Image, ListView, StyleSheet, TouchableHighlight } from 'react-native'
 import { Metrics } from '../Themes'
 // import R from 'ramda'
 
@@ -80,19 +80,23 @@ export default class TestScreen extends React.Component {
       />
     )
   }
-  //  一行ごとの憑依
+  //  一行ごとの
   renderListViewRows (entry) {
     return (
-      <View style={ListStyles.container}>
-        <Image
-          source={{uri: entry.thumbnail}}
-          style={ListStyles.thumbnail}
-        />
-        <View style={ListStyles.rightContainer}>
-          <Text style={ListStyles.title}>{entry.title}</Text>
-          <Text style={ListStyles.year}>{entry.date}</Text>
+      <TouchableHighlight onPress={() => {
+        console.log('on press')
+      }}>
+        <View style={ListStyles.container}>
+          <Image
+            source={{uri: entry.thumbnail}}
+            style={ListStyles.thumbnail}
+          />
+          <View style={ListStyles.rightContainer}>
+            <Text style={ListStyles.title}>{entry.title}</Text>
+            <Text style={ListStyles.year}>{entry.date}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     )
   }
   //  クリック時
