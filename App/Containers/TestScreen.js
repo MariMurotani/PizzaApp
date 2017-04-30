@@ -84,7 +84,7 @@ export default class TestScreen extends React.Component {
   renderListViewRows (entry) {
     return (
       <TouchableHighlight onPress={() => {
-        console.log(this.onClickRow(entry))
+        this.onClickRow(entry)
       }}>
         <View style={ListStyles.container}>
           <Image
@@ -100,9 +100,9 @@ export default class TestScreen extends React.Component {
     )
   }
   //  行をクリック
-  onClickRow (event) {
-    console.log('onClickRow:')
-    console.log(event)
+  onClickRow (entry) {
+    window.alert('onClickRow: ' + entry.title)
+    console.log(entry)
     console.log(this)
   }
 }
