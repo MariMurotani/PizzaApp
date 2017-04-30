@@ -75,7 +75,8 @@ export default class TestScreen extends React.Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={this.renderListViewRows}
+        renderRow={this.renderListViewRows.bind(this)}
+        onClickRow={this.onClickRow(this)}
         style={styles.mainContainer}
       />
     )
@@ -83,9 +84,7 @@ export default class TestScreen extends React.Component {
   //  一行ごとの
   renderListViewRows (entry) {
     return (
-      <TouchableHighlight onPress={() => {
-        console.log('on press')
-      }}>
+      <TouchableHighlight onPress={this.props.onClickRow}>
         <View style={ListStyles.container}>
           <Image
             source={{uri: entry.thumbnail}}
@@ -99,9 +98,11 @@ export default class TestScreen extends React.Component {
       </TouchableHighlight>
     )
   }
-  //  クリック時
-  onClickRow (e) {
-    console.log('on click row')
+  //  行をクリック
+  onClickRow (event) {
+    console.log('onClickRow:')
+    console.log(event)
+    console.log(this)
   }
 }
 
