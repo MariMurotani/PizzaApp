@@ -3,19 +3,9 @@
 import React from 'react'
 import { View, Text, Image, ListView, StyleSheet, TouchableHighlight } from 'react-native'
 import { Metrics } from '../Themes'
-// import R from 'ramda'
-
+import { Actions } from 'react-native-router-flux'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
-// import styles from './Styles/ThemeScreenStyle'
-
-// Colors
-// const colors = R.keys(Colors)
-// Font Types
-// const types = R.keys(Fonts.type)
-// Font Styles
-// const fontStyles = R.keys(Fonts.style)
-
 // URL feed
 var REQUEST_URL = 'https://lingohub.com/blog/feed/json?v=2.0&num=200&q=http://feeds.reuters.com/reuters/businessNews'
 
@@ -101,9 +91,10 @@ export default class TestScreen extends React.Component {
   }
   //  行をクリック
   onClickRow (entry) {
-    window.alert('onClickRow: ' + entry.title)
+    // window.alert('onClickRow: ' + entry.title)
     console.log(entry)
     console.log(this)
+    Actions.testDetail(this.pros, entry)
   }
 }
 
