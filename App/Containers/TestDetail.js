@@ -2,13 +2,14 @@
 'use strict'
 import React from 'react'
 import { View, Text, Image } from 'react-native'
+import styles from './Styles/LaunchScreenStyles'
 
 export default class TestDetail extends React.Component {
   constructor (props) {
     super(props)
-
+    // ステートの設定
     this.state = {
-      loaded: false
+      loaded: true
     }
   }
   //  描画用のrender
@@ -20,7 +21,8 @@ export default class TestDetail extends React.Component {
     console.log('detail view')
     console.log(this.props)
     return (
-      <View>
+      <View style={styles.mainContainer}>
+        <Text>TEST</Text>
         <Text>{this.props.title}</Text>
         <Image
           source={{uri: this.props.thumbnail}}

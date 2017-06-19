@@ -94,7 +94,7 @@ export default class TestScreen extends React.Component {
     // window.alert('onClickRow: ' + entry.title)
     console.log(entry)
     console.log(this)
-    Actions.testDetail(this.pros, entry)
+    Actions.testDetail(entry)
   }
 }
 
